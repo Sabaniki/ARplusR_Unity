@@ -28,4 +28,11 @@
 
 ### 2020年4月26日
 
-姿を消すにはhttps://marunouchi-tech.i-studio.co.jp/2356/によるとRendererをオフにすればいい。なるほど、言われてみればそうだ。
+ 姿を消すにはhttps://marunouchi-tech.i-studio.co.jp/2356/によるとRendererをオフにすればいい。なるほど、言われてみればそうだ。仮想ロボットオブジェクトと障害物の接触検知はうまく行かなかった。仮想ロボットオブジェクトはARマーカーを認識すると生成されるオブジェクトで、AR Foundation のAR Tracked Image Managerスクリプトが管理している。Tracked Image PrefabにはCubeを指定している。障害物もほどんど同様のCubeのPrefabで、画面をタップするとAR上で平面と識別された場所に配置される。障害物のIsTriggerをtrueに、仮想ロボットオブジェクトのIsTriggerはfalseのままにして仮想ロボットオブジェクトのOnTriggerStayに
+
+```c#
+other.transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
+```
+
+としたが動かなかった。Debug.Logに出力することも試したが出力はなかった。OnTriggerEnterに同様にDebug.Logを試したが効果はなかった。(他のシチュエーションでDebug.Logが正常に動くことは確認済み)
+

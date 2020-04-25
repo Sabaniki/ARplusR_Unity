@@ -1,18 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class RobotController : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+public class RobotController : MonoBehaviour {
+    private void OnTriggerStay(Collider other) {
+        other.transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
     }
 }
