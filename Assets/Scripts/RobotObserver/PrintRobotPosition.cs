@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RobotController : MonoBehaviour {
+public class PrintRobotPosition : MonoBehaviour {
     // Start is called before the first frame update
     private GameObject VirtualRobot;
     public Text RobotPositionText;

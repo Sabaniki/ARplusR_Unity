@@ -58,8 +58,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ARTapToPlaceObject.cs" />
-     <Compile Include="Assets\Scripts\RobotController.cs" />
+     <Compile Include="Assets\Scripts\Interaction\ARTapToPlaceObject.cs" />
+     <Compile Include="Assets\Scripts\RobotObserver\PrintRobotPosition.cs" />
+     <Compile Include="Assets\Scripts\VirtualRobot\RobotController.cs" />
  <Reference Include="Unity.XR.Management">
  <HintPath>/Users/sabac/MyPrograms/source/C#/Unity/ARplusR/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
  </Reference>
