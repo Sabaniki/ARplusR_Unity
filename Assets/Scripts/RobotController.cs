@@ -8,7 +8,6 @@ public class RobotController : MonoBehaviour {
     private GameObject VirtualRobot;
     public Text RobotPositionText;
     void Start() {
-        VirtualRobot = GameObject.FindWithTag("VirtualRobot");
         RobotPositionText.text = UpdateRobotPositionText();
     }
 
