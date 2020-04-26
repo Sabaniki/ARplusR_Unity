@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Interaction\ARTapToPlaceObject.cs" />
+     <Compile Include="Assets\Scripts\Obstacle\DebugObstacle.cs" />
      <Compile Include="Assets\Scripts\RobotObserver\PrintRobotPosition.cs" />
      <Compile Include="Assets\Scripts\VirtualRobot\RobotController.cs" />
  <Reference Include="Unity.XR.Management">

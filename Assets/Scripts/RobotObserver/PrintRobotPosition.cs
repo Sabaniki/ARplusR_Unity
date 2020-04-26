@@ -17,7 +17,6 @@ public class PrintRobotPosition : MonoBehaviour {
             VirtualRobot = GameObject.FindWithTag("VirtualRobot");
             return;
         }
-        Debug.Log("AR marker found!!");
         RobotPositionText.text = UpdateRobotPositionText();
     }
 
