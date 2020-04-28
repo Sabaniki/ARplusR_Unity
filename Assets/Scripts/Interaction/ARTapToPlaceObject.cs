@@ -10,9 +10,8 @@ namespace Interaction {
     
         private ARSessionOrigin arSessionOrigin;
         private ARRaycastManager arRaycastManager;
-        private bool placementPoseIsValid = false;
-        private Pose placementPose;
-    
+        public bool placementPoseIsValid = false;
+        public Pose placementPose;
         void Start() {
             arSessionOrigin = FindObjectOfType<ARSessionOrigin>();
             arRaycastManager = arSessionOrigin.GetComponent<ARRaycastManager>();
@@ -22,12 +21,12 @@ namespace Interaction {
             UpdatePlacementPose();
             UpdatePlacementIndicator();
 
-            if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
-                PlaceObject();
-            }
+            // if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
+            //     PlaceObject();
+            // }
         }
 
-        private void PlaceObject() {
+        public void PlaceObject() {
             Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
         }
 
