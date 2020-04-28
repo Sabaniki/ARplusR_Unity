@@ -60,6 +60,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Debug\PrintObjectPosition.cs" />
      <Compile Include="Assets\Scripts\Interaction\ARTapToPlaceObject.cs" />
+     <Compile Include="Assets\Scripts\Obstacle\Rotator.cs" />
  <Reference Include="Unity.XR.Management">
  <HintPath>/Users/sabac/MyPrograms/source/C#/Unity/ARplusR/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
  </Reference>

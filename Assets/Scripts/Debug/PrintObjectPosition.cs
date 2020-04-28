@@ -1,31 +1,39 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Debug {
     public class PrintObjectPosition : MonoBehaviour {
         // Start is called before the first frame update
-        private GameObject TrackingObject;
+        private GameObject[] trackingObjects = {};
         public Text PositionText;
         public string TagText;
+
         void Start() {
             PositionText.text = UpdateRobotPositionText();
         }
 
         // Update is called once per frame
         void Update() {
-            if (TrackingObject == null) {
-                TrackingObject = GameObject.FindWithTag(TagText);
-                return;
-            }
+            // if (!trackingObjects.Any()) {
+                trackingObjects = GameObject.FindGameObjectsWithTag(TagText);
+                // return;
+            // }
             PositionText.text = UpdateRobotPositionText();
         }
 
         string UpdateRobotPositionText() {
-            if (TrackingObject == null) {
+            if (!trackingObjects.Any()) {
                 return $"{TagText} Not Found";
             }
-            Vector3 position;
-            return $"{TagText}Position(X: {(position = TrackingObject.transform.position).x}, Y: {position.y}, Z: {position.z})";
+
+            var positionText = "";
+            foreach (var trackingObject in trackingObjects) {
+                Vector3 position;
+                positionText += $"{TagText}Position(X: {(position = trackingObject.transform.position).x}, Y: {position.y}, Z: {position.z})\n";
+            }
+
+            return positionText;
         }
     }
 }
