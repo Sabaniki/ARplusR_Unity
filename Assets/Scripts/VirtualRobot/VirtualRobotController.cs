@@ -1,18 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class VirtualRobotController : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
+public class VirtualRobotController : MonoBehaviour {
+    public float speed;
+
+    void Update() {
+        var obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         
+        if (!obstacles.Any()) {
+            transform.position += transform.forward * (speed * Time.deltaTime);
+            return;
+        }
+
+        
+        foreach (var obstacle in obstacles) {
+            if (GetDistanceBetweenVirtualRobotAnd(obstacle) > 1.5f) {
+                transform.position += transform.forward * (speed * Time.deltaTime) / obstacles.Length;
+            }
+            else {
+                var rightOrLeft = (obstacle.transform.position.x - transform.position.x) > 0 ? -1 : 1;
+                while (GetDistanceBetweenVirtualRobotAnd(obstacle) < 1.5f) {
+                    transform.position += transform.right * (rightOrLeft * (speed * Time.deltaTime)) / obstacles.Length;
+                }
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private float GetDistanceBetweenVirtualRobotAnd(GameObject targetObject) =>
+        Vector3.Distance(targetObject.transform.position, transform.position);
 }
