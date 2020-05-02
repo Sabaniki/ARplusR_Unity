@@ -20,9 +20,9 @@ public class VirtualRobotController : MonoBehaviour {
                 transform.position += transform.forward * (speed * Time.deltaTime) / obstacles.Length;
             }
             else {
-                var rightOrLeft = (obstacle.transform.position.x - transform.position.x) > 0 ? -1 : 1;
+                var leftOrRight = (obstacle.transform.position.x - transform.position.x) > 0 ? -1 : 1;
                 while (GetDistanceBetweenVirtualRobotAnd(obstacle) < 1.5f) {
-                    transform.position += transform.right * (rightOrLeft * (speed * Time.deltaTime)) / obstacles.Length;
+                    transform.position += transform.right * (leftOrRight * (speed * Time.deltaTime)) / obstacles.Length;
                 }
             }
         }
